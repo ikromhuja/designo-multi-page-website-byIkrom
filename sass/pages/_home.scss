@@ -1,0 +1,278 @@
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the home page.
+// -----------------------------------------------------------------------------
+@use '../abstracts'as *;
+
+.home-hero {
+    position: relative;
+    max-height: 84.3rem;
+    display: grid;
+    justify-content: center;
+
+
+    @include respond-to(medium) {
+        border-radius: var(--roundness);
+    }
+
+    @include respond-to(large) {
+        grid-template-columns: repeat(2, 1fr);
+        justify-content: space-between;
+    }
+
+    align-items: start;
+    background-color: var(--color-peach);
+    overflow: hidden;
+
+    @include respond-to(large) {
+        padding-left: 9.5rem;
+        max-height: 64rem;
+        grid-gap: 1.5rem;
+    }
+
+
+    &__text-wrapper {
+        display: grid;
+        padding-top: rem;
+        justify-items: center;
+        max-width: 54rem;
+        padding-inline: 2.4rem;
+        padding-top: 8rem;
+
+        @include respond-to(medium) {
+            padding-inline: 0;
+            padding-top: 6rem;
+        }
+
+        @include respond-to(large) {
+            padding-top: 14.5rem;
+            padding-bottom: 14.5rem;
+            justify-items: start;
+        }
+
+        .paragraph {
+            max-width: 45rem;
+            margin-top: 2.85rem;
+            margin-bottom: 1.9rem;
+
+            @include respond-to(large) {
+                max-width: 44.5rem;
+                margin-bottom: 4.35rem;
+            }
+        }
+    }
+
+    &__img-wrapper {
+        background-image: url("../../assets/home/desktop/image-hero-phone.png");
+        background-repeat: no-repeat;
+        background-position: center -7rem;
+        align-self: stretch;
+
+        height: 48.8rem;
+        margin-top: -3rem;
+
+        @include respond-to(large) {
+            background-position: center -3.5rem;
+            height: auto;
+            margin-top: 0;
+        }
+    }
+
+
+
+    &::before {
+        position: absolute;
+        content: '';
+        display: block;
+        height: 64rem;
+        width: 64rem;
+        background-image: url("../../assets/home/desktop/bg-pattern-hero-home.svg");
+        top: 50%;
+        transform: translateY(-50%);
+
+        @include respond-to(medium) {
+            right: -12.1rem;
+        }
+
+        @include respond-to(large) {
+            top: 0;
+            right: 0;
+            transform: translateY(0);
+        }
+    }
+
+}
+
+.services {
+    display: grid;
+    grid-template-areas: 'web''app''graphic';
+    grid-row-gap: 2.5rem;
+    margin-block: 12rem;
+
+
+    @include respond-to(large) {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-areas: "web app""web graphic";
+        grid-column-gap: 3rem;
+        grid-row-gap: 2.4rem;
+        margin-block: 16rem;
+    }
+}
+
+.web-design {
+    grid-area: web;
+}
+
+.app-design {
+    grid-area: app;
+}
+
+.graphic-design {
+    grid-area: graphic;
+}
+
+.service {
+    position: relative;
+    border-radius: var(--roundness);
+    overflow: hidden;
+
+    &__text {
+        position: absolute;
+        inset: 0;
+        background-color: hsla(270, 3%, 11%, 49.67%);
+        transition: var(--transition-300);
+        display: grid;
+        align-content: center;
+        justify-items: center;
+        grid-gap: 1.2rem;
+        text-transform: uppercase;
+
+
+        @include respond-to(medium) {
+            grid-gap: 2.4rem;
+        }
+
+        a:link,
+        a:visited {
+            font-size: 1.5rem;
+            font-weight: var(--font-medium);
+            letter-spacing: var(--ls-5);
+            line-height: 2.2rem;
+            color: var(--color-white);
+            display: flex;
+            align-items: center;
+            gap: 2.1rem;
+            justify-content: center;
+
+            img {
+                width: 0.4rem;
+                height: 0.8rem;
+            }
+        }
+
+
+        &:hover {
+            background-color: hsla(11, 73%, 66%, 80%);
+        }
+    }
+}
+
+.features {
+    gap: 2.4rem;
+
+    @include respond-to(large) {
+        gap: 3rem;
+    }
+}
+
+.feature {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-gap: 4.8rem;
+
+
+    @include respond-to(medium) {
+        grid-auto-flow: column;
+    }
+
+    @include respond-to(large) {
+        grid-auto-flow: row;
+        grid-gap: 5.3rem;
+    }
+
+    &__img {
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            display: block;
+            width: 20.2rem;
+            height: 20.2rem;
+            background-image: url('../../assets/shared/desktop/bg-pattern-small-circle.svg');
+            background-repeat: no-repeat;
+
+        }
+
+        &-2::before {
+            transform: rotate(270deg);
+        }
+
+        &-3::before {
+            transform: rotate(90deg);
+        }
+    }
+
+
+    &__text {
+        display: grid;
+        grid-gap: 3.2rem;
+
+        text-align: center;
+
+        @include respond-to(medium) {
+            text-align: left;
+            grid-gap: 1.6rem;
+        }
+
+        @include respond-to(large) {
+            text-align: center;
+            grid-gap: 3.2rem;
+
+        }
+    }
+}
+
+
+// Home bg pattern leaf
+
+.home-main {
+
+    &::before,
+    &::after {
+        display: none;
+        content: '';
+        position: absolute;
+        width: 1006px;
+        height: 594px;
+        background-image: url('../../assets/shared/desktop/bg-pattern-leaf.svg');
+
+        @include respond-to(large) {
+            display: block;
+        }
+    }
+
+    &::before {
+        left: 0;
+        top: 32rem;
+    }
+
+    &::after {
+        right: 0;
+        bottom: 7.4rem;
+        transform: rotate(-180deg);
+        z-index: -1;
+    }
+
+}

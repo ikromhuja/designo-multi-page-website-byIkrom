@@ -1,0 +1,30 @@
+@use '../abstracts'as *;
+
+.text-center {
+    text-align: center;
+}
+
+
+.md\:text-left {
+    @include respond-to(medium) {
+        text-align: left;
+    }
+}
+
+.lg\:text-left {
+    @include respond-to(large) {
+        text-align: left;
+    }
+}
+
+.items-center {
+    align-items: center;
+}
+
+.justify-items-center {
+    justify-items: center;
+}
+
+.align-content-center {
+    align-content: center;
+}
